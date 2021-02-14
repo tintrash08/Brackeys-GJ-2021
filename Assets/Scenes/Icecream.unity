@@ -267,6 +267,7 @@ MonoBehaviour:
   nextPatrolPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   sightRadius: 15
+  boom_blast: {fileID: 3135610035040984050, guid: 71980cf9d6edfd344a7f61b335e44838, type: 3}
 --- !u!195 &406155178
 NavMeshAgent:
   m_ObjectHideFlags: 0

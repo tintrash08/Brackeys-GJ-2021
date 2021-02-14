@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     public float sightRadius = 15f;
 
+    public GameObject boom_blast;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,12 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(transform.position, nextPatrolPoint) < 1f)
         {
             isPatrolling = false;
+            if (isChasingPlayer)
+            {
+                //apply damage to player
+                Instantiate(boom_blast, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
         }
     }
     void CheckPlayerPosition()
