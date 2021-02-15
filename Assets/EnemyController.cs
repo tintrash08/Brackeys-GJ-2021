@@ -16,9 +16,11 @@ public class EnemyController : MonoBehaviour
     public Vector3 nextPatrolPoint;
 
     public GameObject player;
+    Health playerHealthScript;
     public float sightRadius = 15f;
 
     public GameObject boom_blast;
+    public float attackStrength = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class EnemyController : MonoBehaviour
         SetupPatrolPoints();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerHealthScript = player.GetComponent<Health>();
     }
 
     void SetupPatrolPoints()
@@ -68,6 +71,10 @@ public class EnemyController : MonoBehaviour
             if (isChasingPlayer)
             {
                 //apply damage to player
+                if (playerHealthScript!=null)
+                {
+                    playerHealthScript.ChangeHealth(-attackStrength);
+                }
                 Instantiate(boom_blast, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
