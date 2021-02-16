@@ -7,70 +7,46 @@ public class Health : MonoBehaviour
 {
     public float currentHealth;
     public float maxHealth;
+    public float rateOfHealthDepletion = 0.5f;
 
-    public GameObject healthBarGO;
     public Slider healthbarSlider;
     public Color maxHealthColour;
     public Color minHealthColour;
     public Image healthFillImage;
 
-    public bool isAlienBuddy;
     public bool isPlayer;
-    public GameObject player;
-
-    [Header("Alien Buddy Settings")]
-    public float deathCounter = 15f;
-    // Start is called before the first frame update
+    
     void Start()
     {
         currentHealth = maxHealth;
-        healthbarSlider.maxValue = maxHealth;
-        if (isAlienBuddy)
+        if (isPlayer)
         {
-            healthbarSlider.maxValue = deathCounter;
+            healthbarSlider.maxValue = maxHealth;
+            SetHealthBarSlider();
         }
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        SetHealthBarSlider();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isAlienBuddy)
+        if (isPlayer)
         {
-            LookAtPlayer();
-            SetHealthBarSlider();
             ReduceHealthGradually();
+            SetHealthBarSlider();
         }
         
     }
 
     void ReduceHealthGradually()
     {
-        deathCounter -= Time.deltaTime;
-        
-
-        if (deathCounter<=0)
-        {
-            deathCounter = 0;
-            Destroy(gameObject);
-        }
-        healthbarSlider.value = deathCounter;
-        healthFillImage.color = Color.Lerp(minHealthColour, maxHealthColour, healthbarSlider.value / healthbarSlider.maxValue);
+        currentHealth -= Time.deltaTime * rateOfHealthDepletion;
+        CheckIfGameOver();
     }
 
-    void LookAtPlayer()
-    {
-        healthBarGO.transform.LookAt(player.transform);
-    }
     public void ChangeHealth(float change)
     {
         currentHealth += change;
-        if (currentHealth <= 0)
-        {
-            Debug.Log("Game Over");
-        }
+        CheckIfGameOver();
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -78,6 +54,14 @@ public class Health : MonoBehaviour
         SetHealthBarSlider();
     }
 
+    void CheckIfGameOver()
+    {
+        if (currentHealth <= 0)
+        {
+            
+            Debug.Log("Game Over");
+        }
+    }
     void SetHealthBarSlider()
     {
         healthbarSlider.value = currentHealth;
