@@ -26,9 +26,9 @@ public class PlayerShooting : MonoBehaviour {
             Shoot3(); // Laser beam attack (Volumetric Lines a free asset was used for the laser effect)
         }
 
-        if (Input.GetMouseButton(1)) {
-            Shoot2(); // With raycasting (needs muzzle and hit effects)
-        }
+        // if (Input.GetMouseButton(1)) {
+        //     Shoot2(); // With raycasting (needs muzzle and hit effects)
+        // }
     }
 
     private void Shoot() {
