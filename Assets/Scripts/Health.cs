@@ -51,14 +51,16 @@ public class Health : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        SetHealthBarSlider();
+        if (isPlayer)
+        {
+            SetHealthBarSlider();
+        }
     }
 
     void CheckIfGameOver()
     {
         if (currentHealth <= 0)
         {
-            
             Debug.Log("Game Over");
         }
     }
