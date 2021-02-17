@@ -62,16 +62,18 @@ public class Laser : MonoBehaviour
         LookAtPlayer(playerDirection);
         float angle = Vector3.Angle(playerDirection, transform.forward);
 
-        Debug.Log(angle);
+        //Debug.Log(angle);
 
         if (angle < 60f)
         {
             //PewEnemy_GO.transform.LookAt(player.transform);
             if (Physics.Raycast(transform.position, playerDirection, out hit))      //Check if raycast hit something
             {
+                
                 //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 if (hit.transform.CompareTag("Player"))     //check if player is hit
                 {
+                    
                     Shoot();
                 }
                 else
@@ -88,6 +90,7 @@ public class Laser : MonoBehaviour
 
     void Shoot()
     {
+        
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, player.transform.position);
