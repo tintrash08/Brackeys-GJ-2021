@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8505645e8a574e34cb3bdb736106a3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 120
+  mouseSensitivity: 300
   playerModel: {fileID: 1205635580}
   playerWeapon: {fileID: 227456895}
 --- !u!1 &312613826
@@ -2198,8 +2198,8 @@ MonoBehaviour:
   muzzleEffect: {fileID: 0}
   hitEffect: {fileID: 0}
   laserBeam: {fileID: 8961937411636705337, guid: 1f0348f0d0fc968429d3907fea937529, type: 3}
-  fireRate: 20
-  fireDelay: 0
+  fireRate: 10
+  fireDelay: 1
 --- !u!1 &1209917817
 GameObject:
   m_ObjectHideFlags: 0
