@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8961937411626958355}
   - component: {fileID: 8961937411626980051}
   - component: {fileID: 8961937411626271381}
+  - component: {fileID: 214767673654171096}
   m_Layer: 0
   m_Name: laserBeam
   m_TagString: Untagged
@@ -110,7 +111,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8961937411636705337}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cb039d3a64491f4ebfc852d25b5ee70, type: 3}
   m_Name: 
@@ -126,7 +127,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.38850427, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 6
   m_SpotAngle: 30
@@ -177,3 +178,16 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &214767673654171096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8961937411636705337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d14419be1820a418367414eb542c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpeed: 30
