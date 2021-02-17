@@ -12,7 +12,7 @@ public class Laser : MonoBehaviour
     public LineRenderer lineRenderer;
 
     public float sightRadius = 15f;
-    public bool isPlayerInRadius=false;
+    //public bool isPlayerInRadius=false;
 
     public float attackStrength = 0.2f;
     // Start is called before the first frame update
@@ -27,15 +27,8 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isPlayerInRadius = CheckIfPlayerInRadius();
-        if (isPlayerInRadius)
-        {
-            CheckIfPlayerInSight();
-        }
-        else
-        {
-            lineRenderer.enabled = false;
-        }
+        //isPlayerInRadius = CheckIfPlayerInRadius();
+        CheckIfPlayerInSight();
     }
 
 
@@ -44,14 +37,14 @@ public class Laser : MonoBehaviour
         Quaternion neededRotation = Quaternion.LookRotation(targetDirection);
         PewEnemy_GO.transform.rotation = Quaternion.RotateTowards(transform.rotation, neededRotation, Time.deltaTime * 50f);
     }
-    bool CheckIfPlayerInRadius()
+    /*bool CheckIfPlayerInRadius()
     {
         if (Vector3.Distance(transform.position,player.transform.position)<sightRadius)
         {
             return true;
         }
         return false;
-    }
+    }*/
 
     void CheckIfPlayerInSight()
     {
@@ -64,10 +57,10 @@ public class Laser : MonoBehaviour
 
         //Debug.Log(angle);
 
-        if (angle < 60f)
+        if (angle < 40f)
         {
             //PewEnemy_GO.transform.LookAt(player.transform);
-            if (Physics.Raycast(transform.position, playerDirection, out hit))      //Check if raycast hit something
+            if (Physics.Raycast(transform.position, playerDirection, out hit, sightRadius))      //Check if raycast hit something
             {
                 
                 //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
@@ -80,6 +73,10 @@ public class Laser : MonoBehaviour
                 {
                     lineRenderer.enabled = false;
                 }
+            }
+            else
+            {
+                lineRenderer.enabled = false;
             }
         }
         else
