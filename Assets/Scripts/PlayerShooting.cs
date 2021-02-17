@@ -37,9 +37,6 @@ public class PlayerShooting : MonoBehaviour {
     private void ShootLaser() {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-        bulletSpawnPoint.LookAt(mousePos);
         
         if (Physics.Raycast(ray, out hit, distance)) {
             GameObject lgo = GameObject.Instantiate(laserBeam, bulletSpawnPoint.position, bulletSpawnPoint.rotation) as GameObject;
