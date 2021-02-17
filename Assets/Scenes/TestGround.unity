@@ -2100,7 +2100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161368089}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.010001415, z: 1.81}
+  m_LocalPosition: {x: 0, y: 0, z: 0.187}
   m_LocalScale: {x: 12.040228, y: 9.935806, z: 1.8193253}
   m_Children: []
   m_Father: {fileID: 1878629792}
@@ -2198,6 +2198,8 @@ MonoBehaviour:
   muzzleEffect: {fileID: 0}
   hitEffect: {fileID: 0}
   laserBeam: {fileID: 8961937411636705337, guid: 1f0348f0d0fc968429d3907fea937529, type: 3}
+  fireRate: 20
+  fireDelay: 0
 --- !u!1 &1209917817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,6 +3513,18 @@ PrefabInstance:
     - target: {fileID: 5126479446128645928, guid: a232ccd06bc48e5459e878ca1d862f35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126479446485129362, guid: a232ccd06bc48e5459e878ca1d862f35, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126479446485129362, guid: a232ccd06bc48e5459e878ca1d862f35, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126479446485129362, guid: a232ccd06bc48e5459e878ca1d862f35, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.187
       objectReference: {fileID: 0}
     - target: {fileID: 5126479447443203693, guid: a232ccd06bc48e5459e878ca1d862f35, type: 3}
       propertyPath: m_Name
