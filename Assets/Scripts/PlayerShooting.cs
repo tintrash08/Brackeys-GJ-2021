@@ -13,22 +13,37 @@ public class PlayerShooting : MonoBehaviour {
     public ParticleSystem muzzleEffect = null;
     public ParticleSystem hitEffect = null;
     public GameObject laserBeam;
+    public float fireRate = 5f;
+    public float fireDelay = 0f;
 
     void Start() { }
 
     void Update() {
 
+        if (Input.GetMouseButton(0) && Time.time >= fireDelay) {
+            fireDelay = Time.time + 1f/fireRate;
+            ShootLaser();
+        }
+
         // if (Input.GetMouseButton(0)) {
         //     Shoot1(); // basic bullet projectiles
         // }
 
-        if (Input.GetMouseButton(0)) {
-            Shoot3(); // Laser beam attack (Volumetric Lines a free asset was used for the laser effect)
-        }
-
         // if (Input.GetMouseButton(1)) {
         //     Shoot2(); // With raycasting (needs muzzle and hit effects)
         // }
+    }
+
+    private void ShootLaser() {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        if (Physics.Raycast(ray, out hit, distance)) {
+            GameObject lgo = GameObject.Instantiate(laserBeam, bulletSpawnPoint.position, bulletSpawnPoint.rotation) as GameObject;
+            lgo.GetComponent<LaserBehavior>().setTarget(hit.point);
+            GameObject.Destroy(lgo, 2f);
+            Debug.Log("We hit something (" + hit.transform.name + ")");
+        }
     }
 
     private void Shoot() {
@@ -43,16 +58,6 @@ public class PlayerShooting : MonoBehaviour {
     private void Shoot2() {
         RaycastHit hit;
         if(Physics.Raycast(FPSCamera.transform.position, FPSCamera.transform.forward, out hit, distance)) {
-            Debug.Log("We hit something (" + hit.transform.name + ")");
-        }
-    }
-    
-    private void Shoot3() {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, distance)) {
-            GameObject lgo = GameObject.Instantiate(laserBeam, bulletSpawnPoint.position, bulletSpawnPoint.rotation) as GameObject;
-            GameObject.Destroy(lgo, 2f);
             Debug.Log("We hit something (" + hit.transform.name + ")");
         }
     }
