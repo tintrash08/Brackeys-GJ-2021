@@ -7,8 +7,9 @@ public class WaveSystem : MonoBehaviour
 {
     [SerializeField] int waveIntervalCounter;
     [SerializeField] Text uiCounter;
-    [SerializeField] List<WaveEnemyPool> _wavePools;
-
+    
+    [SerializeField] List<WaveEnemyPool> _wavePools = new List<WaveEnemyPool>();
+    int currentWave = 0;
     internal bool isNewWave = true;
 
     void Start() 
@@ -19,7 +20,7 @@ public class WaveSystem : MonoBehaviour
     void Update()
     {
         if (isNewWave && _wavePools.Count > 0) StartCoroutine(SpawnNewWave());
-        else if (_wavePools.Count <= 0) PlayerWon();
+        else if (currentWave > _wavePools.Count) PlayerWon();
     }
 
     ///<summary>
@@ -40,18 +41,14 @@ public class WaveSystem : MonoBehaviour
         }
 
         uiCounter.text = "GET READY!!!!!";
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(2.0f);
+        uiCounter.text = $"WAVE {currentWave + 1}!!!!!";
+        yield return new WaitForSeconds(1.0f);
         uiCounter.text = "GO!!";
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
         uiCounter.enabled = false;   
 
-        _wavePools[0].ActivateEnemies();
-        _wavePools.RemoveAt(0);
-
-        //TODO remove this - used for debugging
-        isNewWave = true;
-
-        yield return null;
+        _wavePools[currentWave++].ActivateEnemies();
     }
 
     ///<summary>
