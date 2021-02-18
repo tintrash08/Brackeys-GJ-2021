@@ -15,6 +15,7 @@ public class PlayerShooting : MonoBehaviour {
     public GameObject laserBeam;
     public float fireRate = 5f;
     public float fireDelay = 0f;
+    public Animator laserGunAnimator;
 
     void Start() { }
 
@@ -23,6 +24,9 @@ public class PlayerShooting : MonoBehaviour {
         if (Input.GetMouseButton(0) && Time.time >= fireDelay) {
             fireDelay = Time.time + 1f/fireRate;
             ShootLaser();
+        } else {
+            laserGunAnimator.SetTrigger("Idle");
+            laserGunAnimator.enabled = false;
         }
 
         // if (Input.GetMouseButton(0)) {
@@ -37,8 +41,11 @@ public class PlayerShooting : MonoBehaviour {
     private void ShootLaser() {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        laserGunAnimator.enabled = true;
         
         if (Physics.Raycast(ray, out hit, distance)) {
+            laserGunAnimator.SetTrigger("Shoot");
             GameObject lgo = GameObject.Instantiate(laserBeam, bulletSpawnPoint.position, bulletSpawnPoint.rotation) as GameObject;
             lgo.GetComponent<LaserBehavior>().setTarget(hit.point);
             GameObject.Destroy(lgo, 2f);
