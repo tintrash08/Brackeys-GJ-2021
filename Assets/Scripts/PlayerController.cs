@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour {
 
     public CharacterController controller;
     Vector3 moveVector;
+    public float currentSpeed;
     public float moveSpeed = 15f;
+    public float runSpeed = 35f;
     public float gravity = -100f;
     public float jumpForce = 20f;
     public bool isJumping = false;
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour {
         float inputZ = Input.GetAxis("Vertical");
 
         moveVector = transform.right * inputX + transform.forward * inputZ;
-        controller.Move(moveVector * moveSpeed * Time.deltaTime);
+        controller.Move(moveVector * currentSpeed * Time.deltaTime);
 
         // Jump
         Jump();
@@ -53,11 +55,11 @@ public class PlayerController : MonoBehaviour {
 
     private void Run() {
         if (Input.GetKey(KeyCode.LeftShift)) {
-            moveSpeed = 30f;
+            currentSpeed = runSpeed;
         }
 
         if(Input.GetKeyUp(KeyCode.LeftShift)) {
-            moveSpeed = 15f;
+            currentSpeed = moveSpeed;
         }
     }
 }
