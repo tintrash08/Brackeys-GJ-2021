@@ -50,6 +50,10 @@ public class PlayerShooting : MonoBehaviour {
             lgo.GetComponent<LaserBehavior>().setTarget(hit.point);
             GameObject.Destroy(lgo, 2f);
             Debug.Log("We hit something (" + hit.transform.name + ")");
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                hit.transform.gameObject.GetComponent<Health>().ChangeHealth(-2);
+            }
         }
     }
 

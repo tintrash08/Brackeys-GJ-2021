@@ -61,6 +61,10 @@ public class Health : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            if (!isPlayer)
+            {
+                Destroy(gameObject);
+            }
             Debug.Log("Game Over");
         }
     }

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6014626608709682005}
   - component: {fileID: 888372355}
   - component: {fileID: 888372356}
+  - component: {fileID: 9090933927603655909}
+  - component: {fileID: 5946617409660355666}
   m_Layer: 0
   m_Name: Pew_Pew_Enemy
   m_TagString: Enemy
@@ -70,6 +72,40 @@ NavMeshAgent:
   m_BaseOffset: 1.59
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &9090933927603655909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6014626608709682004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bbf4ce0760b2e94785429e1d3f3d7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 10
+  rateOfHealthDepletion: 0.5
+  healthbarSlider: {fileID: 0}
+  maxHealthColour: {r: 0, g: 0, b: 0, a: 0}
+  minHealthColour: {r: 0, g: 0, b: 0, a: 0}
+  healthFillImage: {fileID: 0}
+  isPlayer: 0
+--- !u!136 &5946617409660355666
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6014626608709682004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.6981559
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.3949721, z: 0}
 --- !u!1 &6014626609123992961
 GameObject:
   m_ObjectHideFlags: 0
