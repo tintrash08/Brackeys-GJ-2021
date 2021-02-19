@@ -15,6 +15,8 @@ public class Laser : MonoBehaviour
     //public bool isPlayerInRadius=false;
 
     public float attackStrength = 0.2f;
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,7 +89,7 @@ public class Laser : MonoBehaviour
 
     void Shoot()
     {
-        
+        animator.SetTrigger("Attack");
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, player.transform.position);
