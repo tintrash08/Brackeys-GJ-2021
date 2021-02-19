@@ -7,6 +7,9 @@ public class Enemy_LaserMonster : MonoBehaviour
 {
     public NavMeshAgent agent;
     public GameObject player;
+
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,7 @@ public class Enemy_LaserMonster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetTrigger("Run");
         agent.SetDestination(player.transform.position);
     }
 }
