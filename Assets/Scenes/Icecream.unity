@@ -1297,6 +1297,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1053768343625928932, guid: 4cd5a6026c622b644b649b5f623313ec, type: 3}
+      propertyPath: currentSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1053768343625928933, guid: 4cd5a6026c622b644b649b5f623313ec, type: 3}
       propertyPath: m_RootOrder
       value: 8
