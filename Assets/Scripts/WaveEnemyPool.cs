@@ -12,14 +12,10 @@ public class WaveEnemyPool : MonoBehaviour
         //Reference to parent - Wave Enemy System
         parentSystem = GetComponentInParent<WaveSystem>();
 
-        foreach (Transform t in GetComponentsInChildren<Transform>())
+        foreach (Transform t in enemyPool)
         {
-            if (t != this.transform)
-            {
-                enemyPool.Add(t);
-                this.gameObject.SetActive(false);
-                t.gameObject.GetComponent<EnemyWaveHandler>().OnEnemyDestroy += OnEnemyDestroyEvent;
-            }
+            this.gameObject.SetActive(false);
+            // t.gameObject.GetComponent<EnemyWaveHandler>().OnEnemyDestroy += OnEnemyDestroyEvent;
         }
     }
 
@@ -31,15 +27,17 @@ public class WaveEnemyPool : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
-
     ///<summary>
     /// To be called in the enemy script so the pool can remove it from the list
     ///</summary>
     internal void OnEnemyDestroyEvent(GameObject t)
     {
         enemyPool.Remove(t.transform);
-        parentSystem.isNewWave = true;
-        //Check for childrens (enemies) if there is not change Parent state
-        // if (GetComponentsInChildren<Transform>().Length <= 0) 
+
+        if (enemyPool.Count <= 0) 
+        {
+            parentSystem.isNewWave = true;
+            this.gameObject.SetActive(false);
+        }
     }
 }

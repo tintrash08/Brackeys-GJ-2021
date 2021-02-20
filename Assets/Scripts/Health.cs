@@ -63,7 +63,7 @@ public class Health : MonoBehaviour
         {
             if (!isPlayer)
             {
-                Destroy(gameObject);
+                Dead(this.gameObject);
             }
             Debug.Log("Game Over");
         }
@@ -72,6 +72,13 @@ public class Health : MonoBehaviour
     {
         healthbarSlider.value = currentHealth;
         healthFillImage.color = Color.Lerp(minHealthColour, maxHealthColour, currentHealth / maxHealth);
+    }
+
+    void Dead(GameObject obj)
+    {
+        EnemyWaveHandler enemyInWave = GetComponent<EnemyWaveHandler>(); 
+        if (enemyInWave) enemyInWave.Dead();
+        Destroy(gameObject);
     }
 }
 
