@@ -29,6 +29,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3331807899911191776}
   - component: {fileID: 3331807899911191777}
+  - component: {fileID: 8581903998477027130}
   - component: {fileID: 3331807899911191779}
   - component: {fileID: 6261379688947238571}
   m_Layer: 0
@@ -73,6 +74,18 @@ MonoBehaviour:
   minHealthColour: {r: 0, g: 0, b: 0, a: 0}
   healthFillImage: {fileID: 0}
   isPlayer: 0
+--- !u!114 &8581903998477027130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3331807899911192350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536608212abd8334cafcdf30d3647f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3331807899911191779
 MonoBehaviour:
   m_ObjectHideFlags: 0
