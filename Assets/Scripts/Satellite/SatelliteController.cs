@@ -25,6 +25,7 @@ public class SatelliteController : MonoBehaviour {
             AlienDood.transform.parent = AlienDoodsPositions[doodIndex];
             GM.isPlayerCarryingDood = false;
             GM.updateSignalProgress(AlienDood.GetComponent<AlienDood>().powerValue);
+            GM.isPlayerInMission = false;
         }
     }
     

@@ -34,8 +34,8 @@ public class WaveEnemyPool : MonoBehaviour
     {
         enemyPool.Remove(t.transform);
 
-        if (enemyPool.Count <= 0) 
-        {
+        if (enemyPool.Count <= 0)  {
+            GameManager.instance.isPlayerInMission = true;
             parentSystem.isNewWave = true;
             this.gameObject.SetActive(false);
         }

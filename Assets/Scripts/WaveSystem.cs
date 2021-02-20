@@ -12,29 +12,40 @@ public class WaveSystem : MonoBehaviour
     int currentWave = 0;
     internal bool isNewWave = true;
 
-    void Start() 
-    {
+    public GameObject[] AlienDoods;
+
+    void Start() {
         uiCounter.enabled = false;
+        if(currentWave == 0) {
+            StartCoroutine(SpawnNewWave());
+        }
     }
 
-    void Update()
-    {
-        if (isNewWave && _wavePools.Count > 0) StartCoroutine(SpawnNewWave());
-        else if (currentWave > _wavePools.Count) PlayerWon();
+    void Update() {
+        if(isNewWave) {
+            string alienDoodName = "Alien_" + currentWave;
+            int wave = currentWave;
+            AlienDoods[--wave].SetActive(true);
+        }
+
+        if (isNewWave && _wavePools.Count > 0) {
+            if(!GameManager.instance.isPlayerInMission) {
+                StartCoroutine(SpawnNewWave());
+            }
+        } else if (currentWave > _wavePools.Count) PlayerWon();
     }
 
     ///<summary>
     /// Coroutine to start the wave counter and enable the WaveEnemyPool after the timer
     ///</summary>
-    IEnumerator SpawnNewWave()
-    {
+    IEnumerator SpawnNewWave() {
+
         isNewWave = false;
         uiCounter.enabled = true;   
         
         float timer = 0; 
 
-        while (timer <= waveIntervalCounter) 
-        {
+        while (timer <= waveIntervalCounter) {
             uiCounter.text = (timer).ToString("000") +  " s";
             timer += Time.deltaTime;
             yield return null;
@@ -54,8 +65,7 @@ public class WaveSystem : MonoBehaviour
     ///<summary>
     /// Set the state to Won if there is no more waves to spawn
     ///</summary>
-    void PlayerWon()
-    {
+    void PlayerWon() {
         isNewWave = false;
         uiCounter.enabled = true;
         uiCounter.text = "YOU WON!!!";
