@@ -19,7 +19,6 @@ public class SatelliteController : MonoBehaviour {
             int currentDoods = GM.currentDoods;
             int doodIndex = currentDoods; --doodIndex;
             string doodName = "Alien_" + currentDoods;
-            transform.position = GM.AlienDoodHoldPosition.position;
             GameObject AlienDood = GM.AlienDoodHoldPosition.Find(doodName).gameObject;
             AlienDood.transform.position = AlienDoodsPositions[doodIndex].position;
             AlienDood.transform.parent = null;
