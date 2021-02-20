@@ -16,6 +16,7 @@ public class AlienDood : MonoBehaviour {
     void PickUpAlienDood() {
         GameManager GM = GameManager.instance;
         if(!GM.canPickMore()) {
+            GM.isPlayerInMission = true;
             GM.updateDoodsCounter();
             GM.isPlayerCarryingDood = true;
             transform.position = GM.AlienDoodHoldPosition.position;
@@ -25,7 +26,9 @@ public class AlienDood : MonoBehaviour {
         }
     }
 
-    void Start() { }
+    void Start() {
+        gameObject.SetActive(false);
+    }
 
     void Update() { }
 }

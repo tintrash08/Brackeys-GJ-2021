@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public int satelliteSignalProgress = 0;
     public bool isPlayerCarryingDood = false;
     public Transform AlienDoodHoldPosition;
+    public bool isPlayerInMission = true;
 
     public Text alienDoodsCounterText;
     public Text satelliteSignalProgressText;
