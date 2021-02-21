@@ -1,4 +1,4 @@
-# Brackeys-GJ-2021
+<h1 align="center">Brackeys-GJ-2021</h1>
 
 
 <p align="center">
