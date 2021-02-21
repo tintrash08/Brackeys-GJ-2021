@@ -484,6 +484,14 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6014626609123992964, guid: 7280c7048b6a0184dba3bb5df5db8ec8, type: 3}
+      propertyPath: sightAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014626609123992964, guid: 7280c7048b6a0184dba3bb5df5db8ec8, type: 3}
+      propertyPath: sightRadius
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7280c7048b6a0184dba3bb5df5db8ec8, type: 3}
 --- !u!1 &825264716

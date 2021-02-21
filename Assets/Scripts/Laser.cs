@@ -12,10 +12,12 @@ public class Laser : MonoBehaviour
     public LineRenderer lineRenderer;
 
     public float sightRadius = 15f;
+    public float sightAngle = 40f;
     //public bool isPlayerInRadius=false;
 
     public float attackStrength = 0.2f;
     public Animator animator;
+    public bool hasAttackAnimation = false;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +61,7 @@ public class Laser : MonoBehaviour
 
         //Debug.Log(angle);
 
-        if (angle < 40f)
+        if (angle < sightAngle)
         {
             //PewEnemy_GO.transform.LookAt(player.transform);
             if (Physics.Raycast(transform.position, playerDirection, out hit, sightRadius))      //Check if raycast hit something
@@ -89,7 +91,11 @@ public class Laser : MonoBehaviour
 
     void Shoot()
     {
-        animator.SetTrigger("Attack");
+        if (hasAttackAnimation)
+        {
+            animator.SetTrigger("Attack");
+        }
+        
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, player.transform.position);
