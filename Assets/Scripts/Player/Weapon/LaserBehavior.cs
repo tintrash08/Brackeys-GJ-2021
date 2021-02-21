@@ -12,8 +12,10 @@ public class LaserBehavior : MonoBehaviour {
         if (hitTarget.point != null) {
             if (transform.position == hitTarget.point) {
                 // Add hit effect || explosion || knokback
-                if (hitTarget.transform.CompareTag("Enemy")) {
-                    hitTarget.transform.gameObject.GetComponent<Health>().ChangeHealth(-2);
+                if (hitTarget.transform) {
+                    if (hitTarget.transform.CompareTag("Enemy")) {
+                        hitTarget.transform.gameObject.GetComponent<Health>().ChangeHealth(-2);
+                    }
                 }
                 return;
             }

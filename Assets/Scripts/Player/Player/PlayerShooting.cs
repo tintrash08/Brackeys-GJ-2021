@@ -49,10 +49,6 @@ public class PlayerShooting : MonoBehaviour {
             GameObject lgo = GameObject.Instantiate(laserBeam, bulletSpawnPoint.position, bulletSpawnPoint.rotation) as GameObject;
             lgo.GetComponent<LaserBehavior>().setTarget(hit);
             GameObject.Destroy(lgo, 2f);
-            Debug.Log("We hit something (" + hit.transform.name + ")");
-            // if (hit.transform.CompareTag("Enemy")) {
-            //     hit.transform.gameObject.GetComponent<Health>().ChangeHealth(-2);
-            // }
         }
     }
 
