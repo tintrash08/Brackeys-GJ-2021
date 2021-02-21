@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour {
     public bool isPlayerCarryingDood = false;
     public Transform AlienDoodHoldPosition;
     public bool isPlayerInMission = true;
+    public int currentWave = 0;
 
     public Text alienDoodsCounterText;
     public Text satelliteSignalProgressText;
@@ -69,5 +71,8 @@ public class GameManager : MonoBehaviour {
     void Start () { }
     void Update () {
         updateUI();
+        if(satelliteSignalProgress == 100) {
+            SceneManager.LoadScene("END");
+        }
     }
 }

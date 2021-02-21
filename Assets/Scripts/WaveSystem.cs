@@ -23,7 +23,6 @@ public class WaveSystem : MonoBehaviour
 
     void Update() {
         if(isNewWave) {
-            string alienDoodName = "Alien_" + currentWave;
             int wave = currentWave;
             AlienDoods[--wave].SetActive(true);
         }
@@ -33,6 +32,8 @@ public class WaveSystem : MonoBehaviour
                 StartCoroutine(SpawnNewWave());
             }
         } else if (currentWave > _wavePools.Count) PlayerWon();
+
+        GameManager.instance.currentWave = currentWave;
     }
 
     ///<summary>
