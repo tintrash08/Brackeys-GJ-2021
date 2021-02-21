@@ -68,8 +68,12 @@ public class Health : MonoBehaviour
             {
                 Dead(this.gameObject);
             }
-            Debug.Log("Game Over");
-            SceneManager.LoadScene("GameOver Scene");
+            else
+            {
+                Debug.Log("Game Over");
+                SceneManager.LoadScene("GameOver Scene");
+            }
+            
         }
     }
     void SetHealthBarSlider()
