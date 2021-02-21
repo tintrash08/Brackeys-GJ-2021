@@ -41,16 +41,16 @@ public class GameManager : MonoBehaviour {
         switch(satelliteSignalProgress) {
             case 30:
             return Color.red;
-            break;
+            //break;
             case 70:
             return Color.yellow;
-            break;
+            //break;
             case 100:
             return Color.green;
-            break;
+            //break;
             default:
             return Color.red;
-            break;
+            //break;
         }
     }
 
@@ -75,4 +75,6 @@ public class GameManager : MonoBehaviour {
             SceneManager.LoadScene("END");
         }
     }
+
+    
 }

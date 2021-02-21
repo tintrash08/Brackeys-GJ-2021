@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Health : MonoBehaviour
     public Image healthFillImage;
 
     public bool isPlayer;
+
     
     void Start()
     {
@@ -24,6 +26,7 @@ public class Health : MonoBehaviour
             healthbarSlider.maxValue = maxHealth;
             SetHealthBarSlider();
         }
+        
     }
 
     // Update is called once per frame
@@ -66,6 +69,7 @@ public class Health : MonoBehaviour
                 Dead(this.gameObject);
             }
             Debug.Log("Game Over");
+            SceneManager.LoadScene("GameOver Scene");
         }
     }
     void SetHealthBarSlider()
