@@ -12,7 +12,7 @@ public class buttonScript : MonoBehaviour
 
     public void onStart()
     {
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("MAIN_LEVEL_SCENE");
     }
     public void onCredits()
     {
