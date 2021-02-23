@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 15
+  FlyingMonsterSFX: {fileID: 8300000, guid: db174f4bbc5022e4aafd8a00e4aa6b90, type: 3}
 --- !u!65 &6261379688947238571
 BoxCollider:
   m_ObjectHideFlags: 0

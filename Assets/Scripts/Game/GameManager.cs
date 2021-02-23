@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
     public Text alienDoodsCounterText;
     public Text satelliteSignalProgressText;
 
+    public AudioClip planetMusic;
+
     public void updateDoodsCounter() {
         if(!canPickMore()) {
             currentDoods++;
@@ -68,13 +70,14 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    void Start () { }
+    void Start () {
+        AudioManager.instance.PlayMusic(planetMusic, 1);
+    }
+
     void Update () {
         updateUI();
-        if(satelliteSignalProgress == 100) {
+        if(satelliteSignalProgress == MAX_POWER_NEEDED) {
             SceneManager.LoadScene("END");
         }
     }
-
-    
 }
