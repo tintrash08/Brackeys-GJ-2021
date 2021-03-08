@@ -280,6 +280,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 5068085674915910565}
+  bigMonsterSFX: {fileID: 8300000, guid: 8b40bbe5dbd447d4e90d8fb4723b8c01, type: 3}
 --- !u!195 &5068085674316367030
 NavMeshAgent:
   m_ObjectHideFlags: 0

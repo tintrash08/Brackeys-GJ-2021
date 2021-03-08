@@ -5,10 +5,13 @@ using UnityEngine;
 public class SatelliteController : MonoBehaviour {
 
     public Transform[] AlienDoodsPositions;
+    public AudioClip SatelliteSFX;
+    public AudioClip SatelliteSFX2;
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             Debug.Log("SATELLITE CONTACTED");
+            AudioManager.instance.PlaySFX(SatelliteSFX);
             PlaceAlienDood();
         }
     }
@@ -16,6 +19,9 @@ public class SatelliteController : MonoBehaviour {
     void PlaceAlienDood() {
         GameManager GM = GameManager.instance;
         if(GM.canPickMore()) {
+
+            AudioManager.instance.PlaySFX(SatelliteSFX2);
+
             int currentDoods = GM.currentDoods;
             int doodIndex = currentDoods; --doodIndex;
             string doodName = "Alien_" + currentDoods;
